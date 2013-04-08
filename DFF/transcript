@@ -1,0 +1,32 @@
+# //  ModelSim SE-64 10.1c Jul 27 2012 Linux 2.6.18-348.el5
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+vsim DFF.DFF
+# vsim DFF.DFF 
+# Loading work.DFF(fast)
+wave create -driver freeze -pattern repeater -initialvalue HiZ -period 200ns -sequence { 1 0  } -repeat forever -starttime 0ns -endtime 1000ns sim:/DFF/d
+force -freeze sim:/DFF/clk 1 0, 0 {50 ns} -r 100
+add wave  \
+sim:/DFF/q
+add wave  \
+sim:/DFF/qn
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf /home/weidij/Desktop/DFF/wave.do
+wave editwrite -file /home/weidij/Desktop/DFF/wave.do -append
